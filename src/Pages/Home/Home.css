@@ -1,0 +1,92 @@
+.Home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 4rem;
+    color: var(--white);
+    /* text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; */
+    -webkit-text-stroke: .1rem black;
+    -webkit-text-fill-color: white;
+    background-image: var(--banner-img);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.homeContent {
+    height: 100%;
+    min-height: 80vh;
+    color: var(--text-color)
+}
+
+.homeContent h2 {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 3rem;
+}
+
+.homeContent p {
+    margin: 0 auto;
+    padding: 20px 0;
+    font-size: 2rem;
+    max-width: 1100px;
+}
+
+@media screen and (max-width: 820px) {
+    .Home {
+        font-size: 3rem;
+    }
+
+    .homeContent {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Home {
+        font-size: 2rem;
+    }
+
+    .homeContent h2 {
+        font-size: 2rem;
+    }
+
+    .homeContent p {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .Home {
+        font-size: 1.5rem;
+    }
+}
+
+.Version { grid-area: version; text-align: right;}
+.VersionNo { grid-area: versionNo; text-align: left;}
+.java { grid-area: java; text-align: right;}
+.javaip { grid-area: javaip; text-align: left;}
+.bedrock { grid-area: bedrock; text-align: right;}
+.bedrockip { grid-area: bedrockip; text-align: left;}
+.bedrockport { grid-area: bedrockport; text-align: right;}
+.bedrockPortno { grid-area: bedrockPortno; text-align: left;}
+
+.serverip {
+    display: grid;
+    grid-template-areas: "version versionNo" "java javaip" "bedrock bedrockip" "bedrockport bedrockPortno";
+    justify-content: center;
+    align-items: center;
+    row-gap: 1em;
+    column-gap: 1em;
+    margin-bottom: 4em;
+}
+
+.serverip > p {
+    font-size: 1.5rem;
+    padding: 0;
+    width: 100%;
+}

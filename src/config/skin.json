@@ -1,0 +1,92 @@
+[
+    {
+        "id": "1",
+        "name": "ชุดนักเรียนชาย",
+        "img": "student-b.png"
+    },
+    {
+        "id": "2",
+        "name": "ชุดนักเรียนหญิงปลาย",
+        "img": "student-g.png"
+    },
+    {
+        "id": "3",
+        "name": "ชุดนักเรียนหญิงต้น",
+        "img": "fakepng.png"
+    },
+    {
+        "id": "4",
+        "name": "ชุดพละชาย",
+        "img": "fakepng.png"
+    },
+    {
+        "id": "5",
+        "name": "ชุดพละหญิง",
+        "img": "fakepng.png"
+    },
+    {
+        "id": "6",
+        "name": "ชุดรด",
+        "img": "fakepng.png"
+    },
+    {
+        "id": "7",
+        "name": "ชุดนนทรีชาย",
+        "img": "fakepng.png"
+    },
+    {
+        "id": "8",
+        "name": "ชุดนนทรีหญิง",
+        "img": "fakepng.png"
+    },
+    {
+        "id": "9",
+        "name": "ชุดจามจุรีชาย",
+        "img": "fakepng.png"
+    },
+    {
+        "id": "10",
+        "name": "ชุดจามจุรีหญิง",
+        "img": "fakepng.png"
+    },
+    {
+        "id": "11",
+        "name": "ชุดราชาวิดีชาย",
+        "img": "fakepng.png"
+    },
+    {
+        "id": "12",
+        "name": "ชุดราชาวิดีหญิง",
+        "img": "fakepng.png"
+    },
+    {
+        "id": "13",
+        "name": "ชุดยูงทองชาย",
+        "img": "fakepng.png"
+    },
+    {
+        "id": "14",
+        "name": "ชุดยูงทองหญิง",
+        "img": "fakepng.png"
+    },
+    {
+        "id": "15",
+        "name": "ชุดนิโลบลชาย",
+        "img": "fakepng.png"
+    },
+    {
+        "id": "16",
+        "name": "ชุดนิโลบลหญิง",
+        "img": "fakepng.png"
+    },
+    {
+        "id": "17",
+        "name": "ชุดข้าราชการชาย",
+        "img": "govemensuit.png"
+    },
+    {
+        "id": "18",
+        "name": "ชุดข้าราชการหญิง",
+        "img": "fakepng.png"
+    }
+]

@@ -1,0 +1,108 @@
+.SkinTitle {
+    text-align: center;
+    color: var(--text-color);
+    padding-top: calc(60px + 1rem);
+    padding-bottom: 1rem;
+    font-size: 4rem;
+}
+
+.Skin {
+    display: grid;
+    grid-template-columns: 500px 500px 500px;
+    width: 90%;
+    max-width: 1600px;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    grid-gap: 40px;
+    padding-bottom: 40px;
+}
+
+.SkinName {
+    color: var(--text-color);
+    font-size: 2rem;
+}
+
+.SkinCard {
+    padding-top: 0.5rem;
+    background-color: var(--card-background-color);
+    border-radius: 15px;
+    width: 500px;
+}
+
+@media screen and (max-width: 1200px) {
+    .Skin {
+        grid-template-columns: 500px 500px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .Skin {
+        grid-template-columns: 500px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Skin {
+        grid-template-columns: 300px;
+    }
+    
+    .SkinCard {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .Skin {
+        grid-template-columns: 250px;
+    }
+
+    .SkinCard {
+        width: 250px;
+    }
+}
+
+.SkinImg {
+    padding: 10px;
+}
+
+.SkinCmdDiv {
+    display: grid;
+    grid-template-columns: auto 4rem;
+    height: 4rem;
+}
+
+.button {
+    border: none;
+    background-color: var(--card-button-color);
+    border-radius: 15px 15px 15px 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.button:hover {
+    background-color: var(--card-button-color-hover);
+}
+
+.SkinCmd {
+    display: flex;
+    font-size: 2rem;
+    color: var(--text-color);
+    background-color: var(--card-cmd-color);
+    border-radius: 0px 15px 0px 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: scroll;
+    padding: 0rem 1rem;
+    align-items: center;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.SkinCmd::-webkit-scrollbar {
+    display: none;
+}
+
+.copybutton {
+    color: var(--text-color);
+}

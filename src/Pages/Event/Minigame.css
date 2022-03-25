@@ -1,0 +1,81 @@
+.MiniGamePage {
+    height: 100%;
+    min-height: calc(100vh - 4.5rem);
+}
+
+.MiniGameTitle {
+    text-align: center;
+    color: var(--text-color);
+    padding-top: calc(60px + 1rem);
+    padding-bottom: 1rem;
+    font-size: 4rem;
+}
+
+.MiniGame {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+    width: 90%;
+    max-width: 1600px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    grid-gap: 40px;
+    padding-bottom: 40px;
+}
+
+.MinigameName {
+    color: var(--text-color);
+    font-size: 2rem;
+}
+
+.MinigameCard {
+    padding-top: 0.5rem;
+    background-color: var(--card-background-color);
+    border-radius: 15px;
+}
+
+.MinigameLink {
+    text-decoration: none;
+}
+
+.MinigameImg {
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+}
+
+/* .MinigameCmd {
+    display: flex;
+    color: var(--text-color);
+    background-color: var(--card-cmd-color);
+    flex-direction: column;
+    height: 4rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: scroll;
+    padding: 0rem 1rem;
+    align-items: center;
+    border-radius: 0px 0px 15px 15px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.real {
+    padding-top: 0.2rem;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 800px) {
+    .real {
+        font-size: 1.4rem;
+    }
+}
+
+.AboutCmd p {
+    font-size: 1.5rem;
+}
+
+.AboutCmd::-webkit-scrollbar {
+    display: none;
+} */

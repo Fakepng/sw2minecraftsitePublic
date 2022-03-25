@@ -1,0 +1,134 @@
+.AboutTitle {
+    text-align: center;
+    color: var(--text-color);
+    padding-top: calc(60px + 1rem);
+    padding-bottom: 1rem;
+    font-size: 4rem;
+}
+
+.About {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    width: 90%;
+    max-width: 1600px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    grid-gap: 20px;
+    padding-bottom: 2em;
+}
+
+.LeadAbout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 600px));
+    width: 90%;
+    max-width: 1600px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    grid-gap: 40px;
+    padding-bottom: 40px;
+}
+
+.LeadAboutName {
+    color: var(--text-color);
+    font-size: 2rem;
+}
+
+.LeadAboutImg {
+    padding: 10px;
+}
+
+.LeadAboutCmd {
+    display: flex;
+    color: var(--text-color);
+    background-color: var(--card-cmd-color);
+    flex-direction: column;
+    height: 4rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: scroll;
+    padding: 0rem 1rem;
+    align-items: center;
+    border-radius: 0px 0px 15px 15px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.Leadreal {
+    padding-top: 0.2rem;
+    font-size: 1.5rem;
+}
+
+.AboutName {
+    color: var(--text-color);
+    font-size: 1.5rem;
+}
+
+.AboutCard {
+    padding-top: 0.5rem;
+    background-color: var(--card-background-color);
+    border-radius: 15px;
+}
+
+.AboutImg {
+    padding: 10px;
+}
+
+.AboutCmd {
+    display: flex;
+    color: var(--text-color);
+    background-color: var(--card-cmd-color);
+    flex-direction: column;
+    height: 3rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: scroll;
+    padding: 0rem 1rem;
+    align-items: center;
+    border-radius: 0px 0px 15px 15px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.real {
+    padding-top: 0.2rem;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+    .Leadreal {
+        font-size: 1.4rem;
+    }
+
+    .real {
+        font-size: .9rem;
+    }
+}
+
+.AboutCmd p {
+    font-size: 1rem;
+}
+
+.LeadAboutCmd p {
+    font-size: 1.5rem;
+}
+
+.AboutCmd::-webkit-scrollbar {
+    display: none;
+}
+
+.LeadAboutCmd::-webkit-scrollbar {
+    display: none;
+}
+
+.Teams {
+    display: flex;
+    color: var(--text-color);
+    font-size: 3rem;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: .5em;
+}

@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Hide and Seek",
+        "img": "hideandseek.png",
+        "link": "Hide and Seek"
+    },
+    {
+        "name": "PvP",
+        "img": "pvp.png",
+        "link": "PvP"
+    },
+    {
+        "name": "Tag",
+        "img": "tag.png",
+        "link": "Tag"
+    }
+]

@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Encode Sans', sans-serif;
+}
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --gray: #ccc;
+  --grayhighlight: #aaa;
+  --graycmd: #eee;
+  --sw2: #EA1218;
+  --green: green;
+  --img: url(./images/banner-light.png);
+
+  --dark: #121212;
+  --darker: #333;
+  --darkgray: #555;
+  --darkgrayhighlight: #777;
+  --greenyellow: greenyellow;
+  --darkimg: url(./images/banner-dark.png);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+body.light {
+  --background-color: var(--white);
+  --text-color: var(--black);
+  --navbar-background-color: var(--sw2);
+  --navbar-text-color: var(--white);
+  --navbar-text-color-hover: var(--sw2);
+  --navbar-background-color-hover: var(--white);
+  --navbar-text-color-active: var(--black);
+  --card-background-color: var(--gray);
+  --card-button-color: var(--gray);
+  --card-button-color-hover: var(--grayhighlight);
+  --card-cmd-color: var(--graycmd);
+  --banner-img: var(--img);
+  --footer-background-color: var(--gray);
+  --creater-text: var(--green);
+}
+
+body.dark {
+  --background-color: var(--dark);
+  --text-color: var(--white);
+  --navbar-background-color: var(--darker);
+  --navbar-text-color: var(--white);
+  --navbar-text-color-hover: var(--darker);
+  --navbar-background-color-hover: var(--sw2);
+  --navbar-text-color-active: var(--sw2);
+  --card-background-color: var(--darker);
+  --card-button-color: var(--darker);
+  --card-button-color-hover: var(--darkgray);
+  --card-cmd-color: var(--darkgray);
+  --banner-img: var(--darkimg);
+  --footer-background-color: var(--darker);
+  --creater-text: var(--greenyellow);
+}

@@ -1,0 +1,9 @@
+.countdown {
+    display: inline;
+    width: max-content;
+    position: relative;
+    white-space: nowrap;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    color: var(--white);
+}
