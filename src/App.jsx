@@ -12,23 +12,52 @@ import Register from './Pages/Register'
 import Contact from './Pages/Contact'
 import FourOFour from './Pages/FourOFour'
 import Render from './Pages/Render'
+import SignIn from './Pages/Admin'
+import Dashboard from './Pages/Admin/Dashboard'
+import { useJwt } from "react-jwt";
 
 const App = () => {
+  const token = localStorage.getItem("accessToken");
+  const { isExpired } = useJwt(token);
+
+  if (!token && isExpired) {
+    return (
+      <>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/skin" element={<Skin />} />
+          <Route path="/event" element={<Event />} />
+          <Route path="/event/:id" element={<Games />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/admin" element={<SignIn />} />
+          <Route path="*" element={<FourOFour />} status={404} />
+        </Routes>
+        <Footer />
+      </>
+    )
+  }
+
   return (
     <>
       <Navbar />
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/skin" element={<Skin />} />
-        <Route path="/event" element={<Event />} />
-        <Route path="/event/:id" element={<Games />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/render" element={<Render />} />
-        <Route path="*" element={<FourOFour />} status={404} />
-      </Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/skin" element={<Skin />} />
+          <Route path="/event" element={<Event />} />
+          <Route path="/event/:id" element={<Games />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/render" element={<Render />} />
+          <Route path="/admin" element={<SignIn />} />
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route path="*" element={<FourOFour />} status={404} />
+        </Routes>
       <Footer />
     </>
   )
