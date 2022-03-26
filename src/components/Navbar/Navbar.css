@@ -49,15 +49,31 @@
     position: fixed;
     width: 100%;
     height: 100%;
+    max-height: 100vh;
+    background-color: var(--navbar-background-color);
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 60px;
+    z-index: 995;
+    top: 0;
+    left: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.MobileClose {
+    display: grid;
+    position: fixed;
+    width: 100%;
+    height: 100%;
     background-color: var(--navbar-background-color);
     font-size: 2rem;
     text-align: center;
     padding-top: 120px;
     z-index: 995;
-}
-
-.MobileClose {
-    display: none;
+    top: -110vh;
+    left: 0;
+    transition: 0.3s ease-in-out;
+    
 }
 
 .MobileDiv {
@@ -101,11 +117,13 @@
 .mobilelink {
     text-decoration: none;
     color: var(--white);
-    width: auto;
-    padding: 10px 20px;
+    width: min-content;
+    margin: auto;
+    padding: 10px;
     border-radius: 15px;
     font-weight: bold;
     background-color: var(--navbar-background-color);
+    border: red 1px solid;
 }
 
 .mobilelink:hover {
