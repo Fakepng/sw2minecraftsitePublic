@@ -7,8 +7,6 @@ const PlayerList = () => {
     const [reload, setReload] = useState(false);
     const [isError, setError] = useState(false);
 
-    const api = process.env.API
-
     async function getPlayers() {
         const response = await fetch("API");
         const responseJson = await response.json();

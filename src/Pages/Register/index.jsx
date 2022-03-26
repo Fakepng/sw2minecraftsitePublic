@@ -5,8 +5,6 @@ import './Register.css'
 const Register = () => {
     const [register, setRegister] = useState({});
 
-    const api = process.env.API
-
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
