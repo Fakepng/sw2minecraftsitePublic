@@ -123,7 +123,6 @@
     border-radius: 15px;
     font-weight: bold;
     background-color: var(--navbar-background-color);
-    border: red 1px solid;
 }
 
 .mobilelink:hover {
