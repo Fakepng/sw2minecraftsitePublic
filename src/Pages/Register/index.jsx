@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import config from '../../config/config.json'
 import './Register.css'
 
 const Register = () => {
     const [register, setRegister] = useState({});
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -17,7 +19,9 @@ const Register = () => {
         if (!emailValidation()) return alert('Please enter a valid email');
         if (!classroomValidation()) return alert('Please enter a valid classroom');
         if (!telValidation()) return alert('Please enter a valid phone number');
-        axios.post("API", register).then((response) => {
+        setLoading(true);
+        axios.post(`${config.API}/user/register`, register).then((response) => {
+            setLoading(false);
             alert(response.data.message);
         })
     }
@@ -111,9 +115,11 @@ const Register = () => {
                         <option value="classroomBuild">Classroom Build</option>
                     </select>
                 </label>
-                <input type="submit" />
+                <div>
+                    { loading ? <input type="submit" className="disable" disable="true" /> : <input type="submit" /> }
+                    <input onClick={() => setRegister({})} type="reset" value="Clear" />
+                </div>
             </form>
-            <button onClick={() => setRegister({})}>Clear</button>
         </div>
 
     )

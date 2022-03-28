@@ -1,18 +1,25 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import config from '../../../config/config.json'
 import './Event.css'
 
 const EventQuery = () => {
     const [eventQuery, setEventQuery] = useState([]);
+    const [eventQueryLoading, setEventQueryLoading] = useState(false);
+    const [deleting, setDeleting] = useState(false);
 
     const handleQuery = () => {
-        axios.get('API').then((response) => {
+        setEventQueryLoading(true);
+        axios.get(`${config.API}/user/query`).then((response) => {
+            setEventQueryLoading(false);
             setEventQuery(response.data);
         })
     }
 
     const handleDelete = (event) => {
-        axios.delete(`API`).then((response) => {
+        setDeleting(true);
+        axios.delete(`${config.API}/user/query/${event}`).then((response) => {
+            setDeleting(false);
             handleQuery();
         })
     }
@@ -29,7 +36,7 @@ const EventQuery = () => {
                 <td>{query.username}</td>
                 <td>{query.activity}</td>
                 <td>
-                    <button className="button" onClick={() => handleDelete(query._id)}>Delete</button>
+                    { deleting ? <button>Deleting</button> : <button onClick={() => handleDelete(query._id)}>Delete</button> }
                 </td>
             </tr>
         )
@@ -52,7 +59,7 @@ const EventQuery = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {queryList}
+                    { eventQueryLoading ? <tr><td>Loading...</td></tr> : queryList }
                 </tbody>
             </table>
         </div>

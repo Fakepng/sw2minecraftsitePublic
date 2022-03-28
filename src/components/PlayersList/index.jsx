@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import config from '../../config/config.json'
 import './PlayersList.css'
 
 const PlayerList = () => {
@@ -8,7 +9,7 @@ const PlayerList = () => {
     const [isError, setError] = useState(false);
 
     async function getPlayers() {
-        const response = await fetch("API");
+        const response = await fetch(`${config.API}/minecraft`);
         const responseJson = await response.json();
         if (responseJson.error) {
             setError(true);
