@@ -9,3 +9,7 @@
     align-items: center;
     font-size: 1rem;
 }
+
+.disable {
+    opacity: 0.5;
+}
