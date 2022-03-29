@@ -3,6 +3,7 @@ import  { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import aesjs from 'aes-js'
 import config from '../../config/config.json'
+import './Admin.css'
 
 const Admin = () => {
     const [user, setUser] = useState("");
@@ -29,33 +30,27 @@ const Admin = () => {
         })
     }
 
-    const handleLogout = () => {
-        setLoading(false);
-        localStorage.removeItem('accessToken');
-        alert('Logout success');
-    }
-
     return (
         <>
             <form onSubmit={handleSubmit} className="register">
-                <label>Username:
+            <p className="adminRegisterTitle" >Admin Login</p>
+                <label>Username: </label>
                     <input
                         type="text"
                         name="username"
                         value={user || ""}
+                        className="adminUser"
                         onChange={(e) => setUser(e.target.value)}
                     />
-                </label>
-                <label>Password:
+                <label>Password: </label>
                     <input
                         type="password"
                         name="password"
                         value={password || ""}
+                        className="adminPass"
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                </label>
-                { loading ? <input type="submit" className="disable" disable="true" /> : <input type="submit" /> }
-                <button onClick={handleLogout}>Logout</button>
+                { loading ? <input type="submit" className="disable adminSub" disable="true" /> : <input className="adminSub" type="submit" /> }
             </form>
         </>
     )
