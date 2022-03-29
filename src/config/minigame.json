@@ -1,17 +1,17 @@
 [
     {
-        "name": "Hide and Seek",
+        "name": "Classroom Build",
         "img": "hideandseek.png",
-        "link": "Hide and Seek"
+        "link": "classroomBuild"
     },
     {
-        "name": "PvP",
+        "name": "Parkour",
         "img": "pvp.png",
-        "link": "PvP"
+        "link": "parkour"
     },
     {
-        "name": "Tag",
-        "img": "tag.png",
-        "link": "Tag"
+        "name": "Test",
+        "img": "pvp.png",
+        "link": "test"
     }
 ]
