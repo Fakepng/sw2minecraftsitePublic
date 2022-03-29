@@ -1,6 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import AdminNav from './components/Navbar/AdminNav'
 import Footer from './components/Footer'
 import Home from './Pages/Home'
 import Gallery from './Pages/Gallery'
@@ -45,7 +46,7 @@ const App = () => {
 
   return (
     <>
-      <Navbar />
+      <AdminNav />
       <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
