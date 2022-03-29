@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import config from '../../config/config.json'
+import minigame from '../../config/minigame.json'
 import './Register.css'
 
 const Register = () => {
@@ -49,6 +50,10 @@ const Register = () => {
         const telRegex = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g; /* eslint-disable-line */
         return telRegex.test(String(tel).toLowerCase());
     }
+
+    const minigameList = minigame.map(game => {
+        return <option key={game.link} value={game.link}>{game.name}</option>
+    })
 
     return (
         <div className="register">
@@ -112,7 +117,7 @@ const Register = () => {
                 <label>Activity:
                     <select name="activity" value={register.activity} onChange={handleChange}>
                         <option value="-">Select an Activity</option>
-                        <option value="classroomBuild">Classroom Build</option>
+                        {minigameList}
                     </select>
                 </label>
                 <div>
