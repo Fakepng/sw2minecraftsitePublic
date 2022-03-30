@@ -9,10 +9,12 @@ const EventQuery = () => {
     const [eventQueryLoading, setEventQueryLoading] = useState(false);
     const [deleting, setDeleting] = useState(false);
     const [filter, setFilter] = useState({activity: 'all'});
-    const [sortBy, setSortBy] = useState('low-high');
+    const [sortBy, setSortBy] = useState('time');
+    const [search, setSearch] = useState('');
 
     const handleQuery = () => {
         setEventQueryLoading(true);
+        setEventQuery([]);
         axios.get(`${config.API}/user/query`).then((response) => {
             setEventQueryLoading(false);
             setEventQuery(response.data);
@@ -41,8 +43,12 @@ const EventQuery = () => {
         console.log(event.target.value)
     }
 
-    const handleCheck = (event) => {
-        console.log(event)
+    const handleCheck = async (event) => {
+        const _id = event.target.name;
+        const checked = event.target.checked;
+        await axios.put(`${config.API}/user/check`, { _id, checked }).then((response) => {
+            // handleQuery();
+        })
     }
 
     const minigameList = minigame.map(game => {
@@ -52,6 +58,17 @@ const EventQuery = () => {
     const queryList = eventQuery.map(query => {
         if (filter.activity !== 'all' ) {
             if (filter.activity !== query.activity) return null;
+        }
+
+        if (search) {
+            if (!(query.studentId.toLowerCase().includes(search.toLowerCase()) ||
+            query.nameTH.toLowerCase().includes(search.toLowerCase()) || 
+            query.nameEN.toLowerCase().includes(search.toLowerCase()) || 
+            query.email.toLowerCase().includes(search.toLowerCase()) || 
+            query.classroom.toLowerCase().includes(search.toLowerCase()) || 
+            query.tel.toLowerCase().includes(search.toLowerCase()) || 
+            query.username.toLowerCase().includes(search.toLowerCase()) || 
+            query.activity.toLowerCase().includes(search.toLowerCase()) )) return null;
         }
 
         return (
@@ -66,7 +83,7 @@ const EventQuery = () => {
                 <td>{query.activity}</td>
                 <td>
                     {deleting ? <button>Deleting</button> : <button onClick={() => handleDelete(query._id)}>Delete</button>}
-                    <input type='checkbox' onChange={() => handleCheck()} checked={query.checked} />
+                    <input type='checkbox' name={query._id} onChange={handleCheck} defaultChecked={query.checked} />
                 </td>
             </tr>
         )
@@ -83,9 +100,24 @@ const EventQuery = () => {
                         {minigameList}
                     </select>
                     <select name="sortBy" value={sortBy} onChange={handleSort}>
-                        <option value="low-high">Low - High</option>
-                        <option value="high-low">High - Low</option>
+                        <option value="time">Time</option>
+                        <option value="id">Student ID</option>
+                        <option value="th">Name TH</option>
+                        <option value="en">Name EN</option>
+                        <option value="email">email</option>
+                        <option value="classroom">Classroom</option>
+                        <option value="tel">Tel</option>
+                        <option value="username">Username</option>
+                        <option value="activity">Activity</option>
+                        <option value="checked">Checked</option>
                     </select>
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Search"
+                        value={search || ""}
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
                 </div>
             </div>
             <table>
