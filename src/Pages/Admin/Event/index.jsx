@@ -8,9 +8,11 @@ const EventQuery = () => {
     const [eventQuery, setEventQuery] = useState([]);
     const [eventQueryLoading, setEventQueryLoading] = useState(false);
     const [deleting, setDeleting] = useState(false);
-    const [filter, setFilter] = useState({activity: 'all'});
-    const [sortBy, setSortBy] = useState('time');
+    const [filter, setFilter] = useState({ activity: 'all' });
+    const [sortBy, setSortBy] = useState('date');
+    const [sort, setSort] = useState('asc');
     const [search, setSearch] = useState('');
+    const [hideCheck, setHideCheck] = useState(false);
 
     const handleQuery = () => {
         setEventQueryLoading(true);
@@ -35,12 +37,16 @@ const EventQuery = () => {
         setFilter(values => ({ ...values, [name]: value }))
     }
 
+    const handleSortBy = (event) => {
+        setSortBy(event.target.value);
+    }
+
     const handleSort = (event) => {
-        setSortBy(event.target.value)
-        // if (event.target.value === 'low-high') {
-        //     setEventQuery(eventQuery.sort((a, b) => a.price - b.price))
-        // }
-        console.log(event.target.value)
+        if (sort === 'asc') {
+            setEventQuery(eventQuery.sortBy(sortBy));
+        } else {
+            setEventQuery(eventQuery.sortBy(sortBy).reverse());
+        }
     }
 
     const handleCheck = async (event) => {
@@ -56,19 +62,22 @@ const EventQuery = () => {
     })
 
     const queryList = eventQuery.map(query => {
-        if (filter.activity !== 'all' ) {
+        if (filter.activity !== 'all') {
             if (filter.activity !== query.activity) return null;
         }
 
         if (search) {
             if (!(query.studentId.toLowerCase().includes(search.toLowerCase()) ||
-            query.nameTH.toLowerCase().includes(search.toLowerCase()) || 
-            query.nameEN.toLowerCase().includes(search.toLowerCase()) || 
-            query.email.toLowerCase().includes(search.toLowerCase()) || 
-            query.classroom.toLowerCase().includes(search.toLowerCase()) || 
-            query.tel.toLowerCase().includes(search.toLowerCase()) || 
-            query.username.toLowerCase().includes(search.toLowerCase()) || 
-            query.activity.toLowerCase().includes(search.toLowerCase()) )) return null;
+                query.nameTH.toLowerCase().includes(search.toLowerCase()) ||
+                query.nameEN.toLowerCase().includes(search.toLowerCase()) ||
+                query.email.toLowerCase().includes(search.toLowerCase()) ||
+                query.classroom.toLowerCase().includes(search.toLowerCase()) ||
+                query.tel.toLowerCase().includes(search.toLowerCase()) ||
+                query.username.toLowerCase().includes(search.toLowerCase()) ||
+                query.activity.toLowerCase().includes(search.toLowerCase()))) return null;
+        }
+        if (hideCheck) {
+            if (query.checked) return null;
         }
 
         return (
@@ -89,6 +98,13 @@ const EventQuery = () => {
         )
     })
 
+    // eslint-disable-next-line
+    Array.prototype.sortBy = function sortBy(p) {
+        return this.slice(0).sort(function (a, b) {
+            return (a[p].toLowerCase() > b[p].toLowerCase()) ? 1 : (a[p].toLowerCase() < b[p].toLowerCase()) ? -1 : 0;
+        });
+    }
+
     return (
         <div className="eventQuery">
             <p className="eventQueryTitle">Event Query</p>
@@ -99,18 +115,20 @@ const EventQuery = () => {
                         <option value="all">All</option>
                         {minigameList}
                     </select>
-                    <select name="sortBy" value={sortBy} onChange={handleSort}>
-                        <option value="time">Time</option>
-                        <option value="id">Student ID</option>
-                        <option value="th">Name TH</option>
-                        <option value="en">Name EN</option>
+                    <select name="sortBy" value={sortBy} onChange={handleSortBy}>
+                        <option value="date">Time</option>
+                        <option value="studentId">Student ID</option>
+                        <option value="nameTH">Name TH</option>
+                        <option value="nameEN">Name EN</option>
                         <option value="email">email</option>
                         <option value="classroom">Classroom</option>
                         <option value="tel">Tel</option>
                         <option value="username">Username</option>
                         <option value="activity">Activity</option>
-                        <option value="checked">Checked</option>
                     </select>
+                    {sort === 'desc' ? <button onClick={() => setSort('asc')}>Desc</button> : <button onClick={() => setSort('desc')}>Asc</button>}
+                    <button onClick={() => handleSort()}>Sort</button>
+                    {hideCheck ? <button onClick={() => setHideCheck(false)}>Show Check</button> : <button onClick={() => setHideCheck(true)}>Hide Check</button>}
                     <input
                         type="text"
                         name="search"
@@ -140,6 +158,7 @@ const EventQuery = () => {
             </table>
         </div>
     )
+
 }
 
 export default EventQuery
