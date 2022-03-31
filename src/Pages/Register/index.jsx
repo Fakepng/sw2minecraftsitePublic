@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import config from '../../config/config.json'
 import minigame from '../../config/minigame.json'
+import ReCAPTCHA from 'react-google-recaptcha'
 import './Register.css'
 
 const Register = () => {
     const [register, setRegister] = useState({});
     const [loading, setLoading] = useState(false);
+    const [CAPTCHA, setCAPTCHA] = useState('');
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -20,9 +22,11 @@ const Register = () => {
         if (!emailValidation()) return alert('Please enter a valid email');
         if (!classroomValidation()) return alert('Please enter a valid classroom');
         if (!telValidation()) return alert('Please enter a valid phone number');
+        if (!CAPTCHA) return alert('Please verify that you are not a robot');
         setLoading(true);
         axios.post(`${config.API}/user/register`, register).then((response) => {
             setLoading(false);
+            setCAPTCHA('');
             alert(response.data.message);
         })
     }
@@ -120,6 +124,10 @@ const Register = () => {
                         {minigameList}
                     </select>
                 </label>
+                <ReCAPTCHA
+                    sitekey={config.CAPTCHA_KEY}
+                    onChange={(value) => setCAPTCHA(value)}
+                />
                 <div>
                     { loading ? <input type="submit" className="disable" disable="true" /> : <input type="submit" /> }
                     <input onClick={() => setRegister({})} type="reset" value="Clear" />
