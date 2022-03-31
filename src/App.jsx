@@ -16,6 +16,7 @@ import Render from './Pages/Render'
 import SignIn from './Pages/Admin'
 import Dashboard from './Pages/Admin/Dashboard'
 import AdminRegister from './Pages/Admin/Register'
+import AdminRepass from './Pages/Admin/Repass'
 import EventQuery from './Pages/Admin/Event'
 import { useJwt } from "react-jwt";
 
@@ -60,6 +61,7 @@ const App = () => {
           <Route path="/admin" element={<SignIn />} />
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/register" element={<AdminRegister />} />
+          <Route path="/admin/repass" element={<AdminRepass />} />
           <Route path="/admin/event" element={<EventQuery />} />
           <Route path="*" element={<FourOFour />} status={404} />
         </Routes>

@@ -9,6 +9,7 @@ const Dashboard = () => {
       <p className="dashboardTitle">Dashboard</p>
       <div className="dashboardSelect">
         <NavLink className="dashboardSelector" to='/admin/register' >Register</NavLink>
+        <NavLink className="dashboardSelector" to='/admin/repass' >Pass Reset</NavLink>
         <NavLink className="dashboardSelector" to='/admin/event' >Event</NavLink>
       </div>
     </div>

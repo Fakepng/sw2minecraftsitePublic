@@ -26,6 +26,7 @@ const AdminNav = () => {
                     <div className="navbox"><NavLink className="navlink" activeclassname="active" to='/skin'>Skin</NavLink></div>
                     <div className="navbox"><NavLink className="navlink" activeclassname="active" to='/event'>Event</NavLink></div>
                     <div className="navbox"><NavLink className="navlink" activeclassname="active" to='/team'>Team</NavLink></div>
+                    <div className="navbox"><NavLink className="navlink" activeclassname="active" to='/admin/dashboard'>Dashboard</NavLink></div>
                     <div className="navbox"><NavLink className="navlink" onClick={handleLogout} to='/' exact='true'>Logout</NavLink></div>
                     {/* <div className="navbox"><NavLink className="navlink" activeclassname="active" to='/contact'>Contact</NavLink></div> */}
                     <Darkmode />
@@ -40,6 +41,7 @@ const AdminNav = () => {
                 <NavLink className="mobilelink" onClick={handleClick} activeclassname="active" to='/skin'>Skin</NavLink>
                 <NavLink className="mobilelink" onClick={handleClick} activeclassname="active" to='/event'>Event</NavLink>
                 <NavLink className="mobilelink" onClick={handleClick} activeclassname="active" to='/team'>Team</NavLink>
+                <NavLink className="mobilelink" onClick={handleClick} activeclassname="active" to='/admin/dashboard'>Dashboard</NavLink>
                 <NavLink className="mobilelink" onClick={() => { handleClick(); handleLogout(); }} to='/' exact='true'>Logout</NavLink>
                 {/* <NavLink className="mobilelink" onClick={handleClick} activeclassname="active" to='/contact'>Contact</NavLink> */}
                 <div className="mobilelink" onClick={handleClick}>
