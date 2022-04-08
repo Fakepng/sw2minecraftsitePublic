@@ -11,6 +11,7 @@ const Dashboard = () => {
         <NavLink className="dashboardSelector" to='/admin/register' >Register</NavLink>
         <NavLink className="dashboardSelector" to='/admin/repass' >Pass Reset</NavLink>
         <NavLink className="dashboardSelector" to='/admin/event' >Event</NavLink>
+        <NavLink className="dashboardSelector" to='/admin/render' >Pre Render</NavLink>
       </div>
     </div>
   )
