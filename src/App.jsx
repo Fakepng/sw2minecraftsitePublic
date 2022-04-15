@@ -18,12 +18,14 @@ import Dashboard from './Pages/Admin/Dashboard'
 import AdminRegister from './Pages/Admin/Register'
 import AdminRepass from './Pages/Admin/Repass'
 import EventQuery from './Pages/Admin/Event'
-import { isExpired } from "react-jwt";
+import { isExpired, decodeToken } from "react-jwt";
 import  { useNavigate } from 'react-router-dom'
 
 const App = () => {
   const token = localStorage.getItem("accessToken");
+  const user = localStorage.getItem("user");
   const isTokenExpired = isExpired(token);
+  const tokenOwner = decodeToken(token)?.username;
 
   const navigate = useNavigate();
 
@@ -40,7 +42,7 @@ const App = () => {
     }
   });
 
-  if (!token || isTokenExpired) {
+  if (!token || isTokenExpired || tokenOwner !== user) {
     return (
       <>
         <Navbar />
