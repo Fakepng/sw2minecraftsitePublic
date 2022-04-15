@@ -24,6 +24,7 @@ const Admin = () => {
         
         axios.post(`${config.API}/admin/login`, { user, password: encryptedHex }).then((response) => {
             setLoading(false);
+            localStorage.setItem('user', user);
             localStorage.setItem('accessToken', response.data.token);
             alert(`Welcome ${response.data.user}`);
             navigate('/admin/dashboard');
